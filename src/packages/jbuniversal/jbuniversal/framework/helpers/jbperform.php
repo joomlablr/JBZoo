@@ -160,9 +160,9 @@ class JBPerformHelper extends AppHelper
                 `NAME` VARCHAR(200) NULL DEFAULT NULL,
                 PRIMARY KEY (`ID`),
                 INDEX `IX_B_PERF_TEST_0` (`REFERENCE_ID`)
-            ) COLLATE=\'utf8_general_ci\' ENGINE=MyISAM');
+            ) COLLATE=\'utf8mb4_unicode_ci\' ENGINE=InnoDB');
         } else {
-            $this->_DbQuery('CREATE TABLE `' . self::TEST_TABLE . '`(i INT)  COLLATE=\'utf8_general_ci\' ENGINE=MyISAM');
+            $this->_DbQuery('CREATE TABLE `' . self::TEST_TABLE . '`(i INT)  COLLATE=\'utf8mb4_unicode_ci\' ENGINE=InnoDB');
         }
     }
 
