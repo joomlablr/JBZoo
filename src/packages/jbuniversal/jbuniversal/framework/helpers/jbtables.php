@@ -137,7 +137,7 @@ class JBTablesHelper extends AppHelper
                 '`item_id` INT(11) UNSIGNED NOT NULL',
                 '`element_id` VARCHAR(36) NOT NULL',
                 '`param_id` VARCHAR(36) NOT NULL',
-                '`value_s` VARCHAR(150) NOT NULL COLLATE \'utf8_general_ci\'',
+                '`value_s` VARCHAR(150) NOT NULL COLLATE \'utf8mb4_unicode_ci\'',
                 '`value_n` DOUBLE NOT NULL',
                 '`value_d` DATETIME',
                 '`variant` INT(11) NOT NULL'
@@ -398,7 +398,7 @@ class JBTablesHelper extends AppHelper
         $sql   = array();
         $sql[] = 'CREATE TABLE IF NOT EXISTS `' . $tableName . '`';
         $sql[] = '(' . implode(",\n ", $params) . ')';
-        $sql[] = 'COLLATE=\'utf8_general_ci\' ENGINE=MyISAM;';
+        $sql[] = 'COLLATE=\'utf8mb4_unicode_ci\' ENGINE=InnoDB;';
 
         $sqlString = implode(' ', $sql);
 
@@ -452,7 +452,7 @@ class JBTablesHelper extends AppHelper
         foreach ($fields as $field) {
 
             // add fields
-            $tblFields[] = '`' . $this->getFieldName($field, 's') . '` VARCHAR(250) NULL DEFAULT NULL COLLATE \'utf8_general_ci\'';
+            $tblFields[] = '`' . $this->getFieldName($field, 's') . '` VARCHAR(250) NULL DEFAULT NULL COLLATE \'utf8mb4_unicode_ci\'';
             $tblFields[] = '`' . $this->getFieldName($field, 'n') . '` DOUBLE NULL DEFAULT NULL';
             $tblFields[] = '`' . $this->getFieldName($field, 'd') . '` DATETIME NULL DEFAULT NULL';
 
@@ -607,7 +607,7 @@ class JBTablesHelper extends AppHelper
                 if (!in_array($filedName, $currentFields, true)) {
 
                     if ($type == 's') {
-                        $add[] = 'ADD COLUMN `' . $filedName . '` VARCHAR(250) NULL DEFAULT NULL COLLATE \'utf8_general_ci\'';
+                        $add[] = 'ADD COLUMN `' . $filedName . '` VARCHAR(250) NULL DEFAULT NULL COLLATE \'utf8mb4_unicode_ci\'';
                     }
 
                     if ($type == 'n') {
